@@ -1,0 +1,43 @@
+/**
+  @file
+  @author Stefan Frings
+*/
+
+#include "modelcontroller.h"
+
+ModelController::ModelController()
+{}
+
+void ModelController::service(HttpRequest& request, HttpResponse& response)
+{
+    QByteArray faceid_base64 = request.getParameter("faceid");
+    QByteArray faceid = QByteArray::fromBase64(faceid_base64);
+
+    if (request.getParameter("faceid")=="show")
+    {
+//        response.setHeader("Content-Type", "image/jpeg");
+//        QTemporaryFile* file=request.getUploadedFile("file1");
+//        if (file)
+//        {
+//            while (!file->atEnd() && !file->error())
+//            {
+//                QByteArray buffer=file->read(65536);
+//                response.write(buffer);
+//            }
+//        }
+//        else
+//        {
+//            response.write("upload failed");
+//        }
+    }
+
+    else
+    {
+        }
+        response.setHeader("Content-Type", "text/html; charset=ISO-8859-1");
+        response.write("<html><body>");
+        response.write("model controller reply<p>");
+        response.write("</body></html>",true);
+
+}
+
